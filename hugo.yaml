@@ -59,7 +59,7 @@ params:
 
   home:
 
-    repository: 'your/repo'
+    repository: 'dark-li/dark-li-data'
 
 #    repositories:
 #      - name: Website
