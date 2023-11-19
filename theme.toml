@@ -1,9 +1,0 @@
-name = "dusk.li"
-license = "MIT"
-licenselink = "https://github.com/hbstack/theme/blob/main/LICENSE"
-description = "Throwing shade at website dark-mode accessibility"
-homepage = "https://dusk.li"
-features = ["search", "flexible", "modular"]
-[author]
-name = "Graham Gold"
-homepage = "https://github.com/dark-li"
