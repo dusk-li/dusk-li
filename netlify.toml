@@ -1,0 +1,38 @@
+[build]
+  publish = "public"
+  command = "hugo"
+
+[context.production.environment]
+  HUGO_VERSION = "0.120.4"
+  HUGO_ENV = "production"
+  HUGO_ENABLEGITINFO = "true"
+  #HUGO_BASEURL = "https://cirriustech.co.uk"
+
+[context.deploy-preview]
+command = "hugo --gc --minify --buildFuture"
+
+[context.deploy-preview.environment]
+HUGO_VERSION = "0.120.4"
+
+[context.branch-deploy]
+command = "hugo --gc --minify --buildFuture --buildDrafts"
+
+[context.branch-deploy.environment]
+HUGO_VERSION = "0.120.4"
+#HUGO_BASEURL = "https://develop.cirriustech.co.uk"
+  
+  [[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    #Content-Security-Policy = "default-src 'self' links.services.disqus.com disqus.com c.disquscdn.com cirriustech.disqus.com *.cirriustech.co.uk; script-src 'self' 'unsafe-inline' c.disquscdn.com cirriustech.disqus.com *.cirriustech.co.uk platform.twitter.com d33wubrfki0l68.cloudfront.net cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' c.disquscdn.com fonts.googleapis.com *.cirriustech.co.uk cdn.jsdelivr.net d33wubrfki0l68.cloudfront.net; img-src 'self' *.licdn.com www.cloudflare.com www.google-analytics.com referrer.disqus.com c.disquscdn.com *.cirriustech.co.uk links.services.disqus.com d33wubrfki0l68.cloudfront.net; font-src 'self' fonts.googleapis.com fonts.gstatic.com *.cirriustech.co.uk cdn.jsdelivr.net; form-action 'self' *.cirriustech.co.uk; frame-src disqus.com cirriustech.disqus.com *.cirriustech.co.uk www.youtube.com platform.twitter.com; upgrade-insecure-requests"
+    #Strict-Transport-Security = "max-age=31536000; includeSubDomains"
+    X-Powered-By = "Cloudy Unicorns"
+    x-ms-blob-type = "redacted"
+    x-ms-lease-state = "redacted"
+    x-ms-lease-status = "redacted"
+    Upgrade-Insecure-Requests = "1"
+    Referrer-Policy = "same-origin"
+    Permissions-Policy = "payment=(self), geolocation=(self)"
