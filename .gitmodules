@@ -3,4 +3,4 @@
 	url = https://github.com/docura/docura.git
 [submodule "data"]
 	path = data
-	url = ssh://git@github.com/dusk-li/dusk-li-data
+	url = https://github.com/dusk-li/dusk-li-data

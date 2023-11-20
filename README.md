@@ -6,7 +6,7 @@ Dark mode is defined by the [Bureau of Internet Accessibility](https://www.boia.
 
 > Dark modes and themes are extremely popular and they’re frequently touted as an accessibility solution. While the term "dark mode" can have different meanings for different developers, the basic idea is simple: Instead of displaying dark-colored text over a light background, a dark mode inverts the color scheme to display light-colored text over a dark background. This can create more contrast between the content and the background, limiting eyestrain and improving content readability.
 
-As that page also states, Dark Mode is not a panacea - while it helps with several conditions, it can also hinder other conditions - especially if the dark mode color theme has a low contrast ration.
+As that page also states, Dark Mode is not a panacea - while it helps with several conditions, it can also hinder other conditions - especially if the dark mode color theme has a low contrast ratio.
 
 A truly accessible site from a Brightness and Contrast perspective therefore must meet the following criteria:
 
