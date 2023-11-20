@@ -1,3 +1,6 @@
 [submodule "themes/docura"]
 	path = themes/docura
 	url = https://github.com/docura/docura.git
+[submodule "data"]
+	path = data
+	url = https://goldjg@github.com/dusk-li/dusk-li-data
