@@ -1,4 +1,4 @@
-# What is dusk-li?
+# What is dusk.li?
 
 Dusk.li is a website that rates websites based on their accessibility in terms of their support for **Dark Mode**.
 
