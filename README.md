@@ -1,6 +1,6 @@
 # What is dusk-li?
 
-Dusk-li is a website that rates websites based on their accessibility in terms of their support for **Dark Mode**.
+Dusk.li is a website that rates websites based on their accessibility in terms of their support for **Dark Mode**.
 
 Dark mode is defined by the [Bureau of Internet Accessibility](https://www.boia.org/blog/dark-mode-can-improve-text-readability-but-not-for-everyone) as follows:
 
