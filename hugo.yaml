@@ -20,7 +20,7 @@ languages:
     languageCode: en-GB
     contentDir: content/en
     title: dusk.li
-    description: Throwing shade at dark-mode
+    description: Throwing shade at dark mode
     weight: 1
 
 params:
