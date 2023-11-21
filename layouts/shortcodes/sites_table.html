@@ -15,18 +15,18 @@
   </thead>
   <tbody>
 {{ range .Site.Data.websites }}
-    <tr>
-      <td>{{ .company }}</td>
-      <td>{{ .category }}</td>
-      <td>{{ .url }}</td>
-      <td>{{ .description }}</td>
-      <td>{{ .dark_mode }}</td>
-      <td>{{ .default_theme_style }}</td>
-      <td>{{ .supports_custom_themes }}</td>
-      <td>{{ .contrast_accessibility }}</td>
-      <td>{{ .accessibility_rating }}</td>
-      <td>{{ .last_updated }}</td>
-    </tr>
+<tr>
+  <td>{{ .company }}</td>
+  <td>{{ .category }}</td>
+  <td>{{ .url }}</td>
+  <td>{{ .description }}</td>
+  <td>{{ .dark_mode }}</td>
+  <td>{{ .default_theme_style }}</td>
+  <td>{{ .supports_custom_themes }}</td>
+  <td>{{ .contrast_accessibility }}</td>
+  <td>{{ .accessibility_rating }}</td>
+  <td>{{ .last_updated }}</td>
+</tr>
 {{ end }}
   </tbody>
 </table> 
