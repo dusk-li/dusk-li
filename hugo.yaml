@@ -82,7 +82,7 @@ menu:
       weight: 1
 
     - url: /docs
-      name: Docs
+      name: Documentation
       identifier: docs
       pre: "<i class='icon icon-book'></i>"
       weight: 2
