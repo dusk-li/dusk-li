@@ -20,7 +20,7 @@ languages:
     languageCode: en-GB
     contentDir: content/en
     title: dusk.li
-    description: Throwing shade at websites!
+    description: Throwing shade at the web
     weight: 1
 
 params:
