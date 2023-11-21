@@ -1,4 +1,4 @@
-<table>
+<table style="width:100%">
   <thead>
     <tr>
       <th>Company</th>
@@ -18,7 +18,7 @@
 <tr>
   <td>{{ .company }}</td>
   <td>{{ .category }}</td>
-  <td>{{ .url }}</td>
+  <td><a href="{{ .url }}" target="_blank">{{ .url }}</a></td>
   <td>{{ .description }}</td>
   <td>{{ .dark_mode }}</td>
   <td>{{ .default_theme_style }}</td>
