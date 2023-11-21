@@ -14,7 +14,7 @@
     </tr>
   </thead>
   <tbody>
-    {{ range .Site.Data.websites }}
+{{ range .Site.Data.websites }}
     <tr>
       <td>{{ .company }}</td>
       <td>{{ .category }}</td>
@@ -27,6 +27,6 @@
       <td>{{ .accessibility_rating }}</td>
       <td>{{ .last_updated }}</td>
     </tr>
-    {{ end }}
+{{ end }}
   </tbody>
 </table> 
