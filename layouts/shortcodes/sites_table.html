@@ -1,7 +1,6 @@
 <table style="width:100%" id="myTable">
   <thead>
     <tr>
-      <th>Company</th>
       <th>Category</th>
       <th>URL</th>
       <th>Description</th>
@@ -16,7 +15,6 @@
   <tbody>
 {{ range .Site.Data.websites }}
 <tr>
-  <td>{{ .company }}</td>
   <td>{{ .category }}</td>
   <td><a href="{{ .url }}" target="_blank">{{ .url }}</a></td>
   <td>{{ .description }}</td>
