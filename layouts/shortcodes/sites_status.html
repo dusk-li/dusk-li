@@ -1,1 +1,1 @@
-<a>{{ range .Site.Data.websites | len }} sites scanned as of: {{ .Site.LastChange | time.Format ":date_long" }}</a>
+<a>{{ range .Site.Data.websites | len }} sites scanned as of {{ .Site.LastChange | time.Format ":date_long" }}</a>
