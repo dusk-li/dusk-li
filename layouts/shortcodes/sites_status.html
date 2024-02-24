@@ -1,2 +1,2 @@
-<h3>{{ .Site.Data.websites | len }} scanned and in database since {{ range .Site.Data.websites.ByLastmod.Reverse.Limit 1.Lastmod}}
+<h3>{{ .Site.Data.websites | len }} scanned and in database since {{ range .Site.Data.websites.ByLastmod.Reverse.Limit 1 | Lastmod}}
 {{ end }} </h3>
