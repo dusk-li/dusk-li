@@ -1,1 +1,2 @@
-<h3>{{ .Site.Data.websites | len }} scanned and in database since {{ range sort .Site.Data.websites "last_updated" "desc" | first 1 }}{{ .last_updated }}{{ end }}</h3>
+<h3>{{ .Site.Data.websites | len }} websites scanned and in datastore.
+Datastore last updates: {{ range sort .Site.Data.websites "last_updated" "desc" | first 1 }}{{ .last_updated }}{{ end }}</h3>
