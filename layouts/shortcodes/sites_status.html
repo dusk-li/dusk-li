@@ -1,4 +1,4 @@
 <h3>{{ .Site.Data.websites | len }} scanned and in database since </h3>
-{{ $dates := range sort .Site.Data.websites "last_updated" "desc" | Limit 1 }}
+{{ $dates := (range sort .Site.Data.websites "last_updated" "desc") }}
 {{ end }}
 <h3>{{ $dates | Limit 1 }}</h3>
