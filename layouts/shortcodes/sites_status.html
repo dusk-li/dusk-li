@@ -1,4 +1,4 @@
-<h3>{{ .Site.Data.websites | len }} scanned and in database since </h3>
+<h3>{{ .Site.Data.websites | len }} scanned and in database since 
 {{ range .Site.Data.websites.ByLastmod.Reverse.Limit 1 }}
-<h3>{{ .last_updated }}</h3>
+{{ .last_updated }}</h3>
 {{ end }}
