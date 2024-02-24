@@ -1,4 +1,4 @@
 <h3>{{ .Site.Data.websites | len }} scanned and in database since </h3>
-{{ range sort .Site.Data.websites "last_updated" "desc" }}
+{{ range sort .Site.Data.websites "last_updated" "desc".First 1 }}
 <h3>{{ .last_updated }}</h3>
 {{ end }}
