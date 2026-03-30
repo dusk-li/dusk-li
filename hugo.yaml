@@ -1,5 +1,8 @@
 enableGitInfo: true
 
+ignoreFiles:
+  - data/README\.md
+
 markup:
   highlight:
     noClasses: false
