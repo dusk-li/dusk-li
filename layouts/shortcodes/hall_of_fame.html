@@ -16,11 +16,8 @@
 {{/* Contrast pass */}}
 {{ $passSites := where $sites "contrast_accessibility" "PASS" }}
 
-{{/* Champions: Auto dark mode AND PASS contrast */}}
-{{ $champions := slice }}
-{{ range $autoSites }}
-  {{ if eq .contrast_accessibility "PASS" }}{{ $champions = $champions | append . }}{{ end }}
-{{ end }}
+{{/* Champions: Perfect score (3/3) */}}
+{{ $champions := $score3 }}
 
 <section class="metrics-grid" aria-label="Summary statistics">
   <div class="metric-card metric-card--gold">
@@ -42,12 +39,12 @@
 </section>
 
 <h2>Champions — perfect score</h2>
-<p>{{ len $champions }} {{ if eq (len $champions) 1 }}site{{ else }}sites{{ end }} with automatic dark mode and passing contrast accessibility.</p>
+<p>{{ len $champions }} {{ if eq (len $champions) 1 }}site{{ else }}sites{{ end }} with a perfect accessibility score (3/3).</p>
 
 {{ if $champions }}
 <div class="table-wrapper" role="region" aria-label="Champion sites" tabindex="0">
 <table>
-  <caption>Sites with automatic dark mode and PASS contrast (score 3/3)</caption>
+  <caption>Sites with a perfect accessibility score (3/3)</caption>
   <thead>
     <tr>
       <th scope="col">URL</th>
@@ -72,33 +69,3 @@
 </div>
 {{ end }}
 
-<h2>All sites with a score of 3/3</h2>
-{{ if $score3 }}
-<div class="table-wrapper" role="region" aria-label="Perfect score sites" tabindex="0">
-<table>
-  <caption>All sites rated 3/3</caption>
-  <thead>
-    <tr>
-      <th scope="col">URL</th>
-      <th scope="col">Dark Mode</th>
-      <th scope="col">Contrast</th>
-      <th scope="col">Score</th>
-      <th scope="col">Last Reviewed</th>
-    </tr>
-  </thead>
-  <tbody>
-    {{ range sort $score3 "url" "asc" }}
-    <tr>
-      <td><a href="{{ .url }}" target="_blank" rel="noopener noreferrer">{{ .url }}<span class="sr-only"> (opens in new tab)</span></a></td>
-      <td>{{ .dark_mode }}</td>
-      <td><span class="badge badge--{{ .contrast_accessibility | lower }}">{{ .contrast_accessibility }}</span></td>
-      <td>{{ .accessibility_rating }}</td>
-      <td>{{ .last_updated }}</td>
-    </tr>
-    {{ end }}
-  </tbody>
-</table>
-</div>
-{{ else }}
-<p>No sites have achieved a perfect score yet.</p>
-{{ end }}
