@@ -1,23 +1,42 @@
+<div class="table-controls">
+  <label class="sr-only" for="table-search">Search all columns</label>
+  <input type="search" id="table-search" class="table-search" placeholder="Search…" aria-label="Search all columns">
+  <span class="table-count" id="table-count" aria-live="polite" aria-atomic="true"></span>
+</div>
 <div class="table-wrapper" role="region" aria-label="Scanned websites" tabindex="0">
 <table id="sites-table">
-  <caption>Websites rated for dark mode and contrast accessibility</caption>
+  <caption>Websites rated for dark mode and colour contrast accessibility</caption>
   <thead>
     <tr>
-      <th scope="col">URL</th>
-      <th scope="col">Dark Mode</th>
-      <th scope="col">Contrast</th>
-      <th scope="col">Score</th>
-      <th scope="col">Last Reviewed</th>
+      <th scope="col"><button class="sort-btn" data-col="0" aria-sort="none">URL</button></th>
+      <th scope="col"><button class="sort-btn" data-col="1" aria-sort="none">Dark Mode</button>
+        <select class="col-filter" aria-label="Filter Dark Mode" data-col="1">
+          <option value="">All</option>
+          <option value="Auto">Auto</option>
+          <option value="Manual">Manual</option>
+          <option value="None">None</option>
+        </select>
+      </th>
+      <th scope="col"><button class="sort-btn" data-col="2" aria-sort="none">Contrast</button>
+        <select class="col-filter" aria-label="Filter Contrast" data-col="2">
+          <option value="">All</option>
+          <option value="PASS">PASS</option>
+          <option value="FAIL">FAIL</option>
+          <option value="BLOCKED">BLOCKED</option>
+        </select>
+      </th>
+      <th scope="col"><button class="sort-btn" data-col="3" aria-sort="none">Score</button></th>
+      <th scope="col"><button class="sort-btn" data-col="4" aria-sort="none">Last Reviewed</button></th>
     </tr>
   </thead>
   <tbody>
 {{ range .Site.Data.websites }}
 <tr>
-  <td><a href="{{ .url }}" target="_blank" rel="noopener noreferrer">{{ .url }}<span class="sr-only"> (opens in new tab)</span></a></td>
-  <td>{{ .dark_mode }}</td>
-  <td><span class="badge badge--{{ .contrast_accessibility | lower }}">{{ .contrast_accessibility }}</span></td>
-  <td>{{ .accessibility_rating }}</td>
-  <td>{{ .last_updated }}</td>
+  <td data-val="{{ .url }}"><a href="{{ .url }}" target="_blank" rel="noopener noreferrer">{{ .url }}<span class="sr-only"> (opens in new tab)</span></a></td>
+  <td data-val="{{ .dark_mode }}">{{ .dark_mode }}</td>
+  <td data-val="{{ .contrast_accessibility }}"><span class="badge badge--{{ .contrast_accessibility | lower }}">{{ .contrast_accessibility }}</span></td>
+  <td data-val="{{ .accessibility_rating }}">{{ .accessibility_rating }}</td>
+  <td data-val="{{ .last_updated }}">{{ .last_updated }}</td>
 </tr>
 {{ end }}
   </tbody>
