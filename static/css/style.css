@@ -286,19 +286,19 @@ main {
   font-weight: 600;
 }
 
-.nav-request {
+.site-nav a.nav-request {
   padding: 0.25rem 0.75rem;
   border: 2px solid var(--colour-accent);
   border-radius: 6px;
-  color: var(--colour-accent) !important;
+  color: var(--colour-accent);
   font-weight: 600;
   white-space: nowrap;
 }
 
-.nav-request:hover,
-.nav-request:focus {
+.site-nav a.nav-request:hover,
+.site-nav a.nav-request:focus {
   background-color: var(--colour-accent);
-  color: #ffffff !important;
+  color: #ffffff;
 }
 
 /* ── Review request CTA ──────────────────────────────────────── */
@@ -320,21 +320,6 @@ main {
   font-size: 0.9375rem;
   max-width: none;
 }
-
-.btn--outline {
-  background-color: transparent;
-  color: var(--colour-accent);
-  border-color: var(--colour-accent);
-  white-space: nowrap;
-}
-
-.btn--outline:hover,
-.btn--outline:focus {
-  background-color: var(--colour-accent);
-  color: #ffffff;
-  border-color: var(--colour-accent);
-}
-
 
 .theme-toggle {
   display: flex;
@@ -772,6 +757,10 @@ main {
   }
 
   .theme-label {
+    display: none;
+  }
+
+  .site-nav a.nav-request {
     display: none;
   }
 
