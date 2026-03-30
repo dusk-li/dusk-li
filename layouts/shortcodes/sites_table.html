@@ -1,7 +1,6 @@
 <table style="width:100%" id="myTable">
   <thead>
     <tr>
-      <th>Category</th>
       <th>URL</th>
       <th>Dark Mode Support</th>
       <th>Contrast Accessibility</th>
@@ -12,7 +11,6 @@
   <tbody>
 {{ range .Site.Data.websites }}
 <tr>
-  <td>{{ .category }}</td>
   <td><a href="{{ .url }}" target="_blank">{{ .url }}</a></td>
   <td>{{ .dark_mode }}</td>
   <td>{{ .contrast_accessibility }}</td>
