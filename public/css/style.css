@@ -286,7 +286,56 @@ main {
   font-weight: 600;
 }
 
-/* ── Theme Toggle ────────────────────────────────────────────── */
+.nav-request {
+  padding: 0.25rem 0.75rem;
+  border: 2px solid var(--colour-accent);
+  border-radius: 6px;
+  color: var(--colour-accent) !important;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.nav-request:hover,
+.nav-request:focus {
+  background-color: var(--colour-accent);
+  color: #ffffff !important;
+}
+
+/* ── Review request CTA ──────────────────────────────────────── */
+.review-request-cta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+  background: var(--colour-bg-alt);
+  border: 1px solid var(--colour-border);
+  border-radius: var(--radius);
+  padding: var(--space-md) var(--space-lg);
+  margin-bottom: var(--space-lg);
+}
+
+.review-request-cta p {
+  margin: 0;
+  color: var(--colour-muted);
+  font-size: 0.9375rem;
+  max-width: none;
+}
+
+.btn--outline {
+  background-color: transparent;
+  color: var(--colour-accent);
+  border-color: var(--colour-accent);
+  white-space: nowrap;
+}
+
+.btn--outline:hover,
+.btn--outline:focus {
+  background-color: var(--colour-accent);
+  color: #ffffff;
+  border-color: var(--colour-accent);
+}
+
+
 .theme-toggle {
   display: flex;
   align-items: center;
