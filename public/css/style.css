@@ -470,8 +470,16 @@ main {
 }
 
 .prose {
-  max-width: 70ch;
   line-height: 1.75;
+}
+
+.prose > p,
+.prose > ul,
+.prose > ol,
+.prose > blockquote,
+.prose > h2,
+.prose > h3 {
+  max-width: 70ch;
 }
 
 .prose h2 {
@@ -568,10 +576,8 @@ main {
 
 /* ── Table ───────────────────────────────────────────────────── */
 
-/* Full-viewport breakout: table escapes the prose max-width */
 .table-wrapper {
-  width: 100vw;
-  margin-left: calc(50% - 50vw);
+  width: 100%;
   overflow-x: auto;
   overflow-y: auto;
   max-height: 80vh;
