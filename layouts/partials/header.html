@@ -8,6 +8,8 @@
         <li><a href="{{ "/" | relURL }}"{{ if .IsHome }} aria-current="page"{{ end }}>Home</a></li>
         <li><a href="/docs/overview"{{ if eq .RelPermalink "/docs/overview/" }} aria-current="page"{{ end }}>Overview</a></li>
         <li><a href="/docs/the-list"{{ if eq .RelPermalink "/docs/the-list/" }} aria-current="page"{{ end }}>The List</a></li>
+        <li><a href="/docs/hall-of-fame"{{ if eq .RelPermalink "/docs/hall-of-fame/" }} aria-current="page"{{ end }}>Hall of Fame</a></li>
+        <li><a href="/docs/hall-of-shame"{{ if eq .RelPermalink "/docs/hall-of-shame/" }} aria-current="page"{{ end }}>Hall of Shame</a></li>
       </ul>
     </nav>
     <button class="theme-toggle" id="theme-toggle" aria-label="Switch to dark mode" aria-pressed="false">

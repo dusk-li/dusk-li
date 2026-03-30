@@ -1,0 +1,115 @@
+{{ $sites := .Site.Data.websites }}
+{{ $total := len $sites }}
+
+{{/* Score 0 */}}
+{{ $score0 := slice }}
+{{ range $sites }}
+  {{ if eq .accessibility_rating "0/3" }}{{ $score0 = $score0 | append . }}{{ end }}
+{{ end }}
+
+{{/* Dark mode none */}}
+{{ $noDark := where $sites "dark_mode" "None" }}
+
+{{/* Contrast fail or blocked */}}
+{{ $failContrast := slice }}
+{{ $blockedContrast := slice }}
+{{ range $sites }}
+  {{ if eq .contrast_accessibility "FAIL" }}{{ $failContrast = $failContrast | append . }}{{ end }}
+  {{ if eq .contrast_accessibility "BLOCKED" }}{{ $blockedContrast = $blockedContrast | append . }}{{ end }}
+{{ end }}
+{{ $failOrBlocked := $failContrast | append $blockedContrast }}
+
+{{/* Worst: no dark mode AND fail/blocked contrast */}}
+{{ $worst := slice }}
+{{ range $noDark }}
+  {{ if or (eq .contrast_accessibility "FAIL") (eq .contrast_accessibility "BLOCKED") }}
+    {{ $worst = $worst | append . }}
+  {{ end }}
+{{ end }}
+
+<section class="metrics-grid" aria-label="Summary statistics">
+  <div class="metric-card metric-card--red">
+    <span class="metric-num">{{ len $score0 }}</span>
+    <span class="metric-label">Score of zero (0/3)</span>
+  </div>
+  <div class="metric-card">
+    <span class="metric-num">{{ len $noDark }}</span>
+    <span class="metric-label">No dark mode</span>
+  </div>
+  <div class="metric-card">
+    <span class="metric-num">{{ len $failContrast }}</span>
+    <span class="metric-label">Contrast FAIL</span>
+  </div>
+  <div class="metric-card">
+    <span class="metric-num">{{ len $blockedContrast }}</span>
+    <span class="metric-label">Contrast BLOCKED</span>
+  </div>
+</section>
+
+<h2>Most common failings</h2>
+<ul class="failings-list">
+  <li><strong>No dark mode support:</strong> {{ len $noDark }} of {{ $total }} sites ({{ printf "%.0f" (mul (div (float (len $noDark)) (float $total)) 100.0) }}%)</li>
+  <li><strong>Contrast FAIL:</strong> {{ len $failContrast }} of {{ $total }} sites ({{ printf "%.0f" (mul (div (float (len $failContrast)) (float $total)) 100.0) }}%)</li>
+  <li><strong>Contrast BLOCKED:</strong> {{ len $blockedContrast }} of {{ $total }} sites ({{ printf "%.0f" (mul (div (float (len $blockedContrast)) (float $total)) 100.0) }}%)</li>
+  <li><strong>Zero score (no dark mode &amp; failing contrast):</strong> {{ len $worst }} of {{ $total }} sites</li>
+</ul>
+
+<h2>The worst offenders — no dark mode &amp; failing contrast</h2>
+{{ if $worst }}
+<div class="table-wrapper" role="region" aria-label="Worst sites" tabindex="0">
+<table>
+  <caption>Sites with no dark mode and failing or blocked contrast</caption>
+  <thead>
+    <tr>
+      <th scope="col">URL</th>
+      <th scope="col">Dark Mode</th>
+      <th scope="col">Contrast</th>
+      <th scope="col">Score</th>
+      <th scope="col">Last Reviewed</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{ range sort $worst "url" "asc" }}
+    <tr>
+      <td><a href="{{ .url }}" target="_blank" rel="noopener noreferrer">{{ .url }}<span class="sr-only"> (opens in new tab)</span></a></td>
+      <td>{{ .dark_mode }}</td>
+      <td><span class="badge badge--{{ .contrast_accessibility | lower }}">{{ .contrast_accessibility }}</span></td>
+      <td>{{ .accessibility_rating }}</td>
+      <td>{{ .last_updated }}</td>
+    </tr>
+    {{ end }}
+  </tbody>
+</table>
+</div>
+{{ end }}
+
+<h2>All sites with a score of 0/3</h2>
+{{ if $score0 }}
+<div class="table-wrapper" role="region" aria-label="Zero score sites" tabindex="0">
+<table>
+  <caption>All sites rated 0/3</caption>
+  <thead>
+    <tr>
+      <th scope="col">URL</th>
+      <th scope="col">Dark Mode</th>
+      <th scope="col">Contrast</th>
+      <th scope="col">Score</th>
+      <th scope="col">Last Reviewed</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{ range sort $score0 "url" "asc" }}
+    <tr>
+      <td><a href="{{ .url }}" target="_blank" rel="noopener noreferrer">{{ .url }}<span class="sr-only"> (opens in new tab)</span></a></td>
+      <td>{{ .dark_mode }}</td>
+      <td><span class="badge badge--{{ .contrast_accessibility | lower }}">{{ .contrast_accessibility }}</span></td>
+      <td>{{ .accessibility_rating }}</td>
+      <td>{{ .last_updated }}</td>
+    </tr>
+    {{ end }}
+  </tbody>
+</table>
+</div>
+{{ else }}
+<p>No sites have a zero score — progress!</p>
+{{ end }}
