@@ -1,5 +1,3 @@
-theme: docura
-
 enableGitInfo: true
 
 markup:
@@ -8,10 +6,6 @@ markup:
   goldmark:
     renderer:
       unsafe: true
-
-#services:
-  #googleAnalytics:
-    #ID: G-xxxxxxxxxx
 
 defaultContentLanguage: en
 languages:
@@ -24,65 +18,19 @@ languages:
     weight: 1
 
 params:
-
   author:
     name: Graham Gold
-    url: https://github.com/goldjg 
-
-  themeColors:
-    light: '#ffffff'
-    dark: '#121212'
-
-  years:
-    start: ''
-    present: 2023
-
-  social:
-    github: ''
-    youtube: ''
-    facebook: ''
-    x: ''
-
-  ads:
-    googleAdSense: ''
-
-  donate:
-    buyMeACoffee: ''
-    githubSponsor: ''
-
-  algolia:
-    en:
-      container: '#site-header-search'
-      appId: ''
-      indexName: ''
-      apiKey: ''
-
-  home:
-
-    repository: 'dark-li/dark-li-data'
-
-#    repositories:
-#      - name: Website
-#        repo: org/site
-#        icon: "<i class='icon icon-book'></i>"
-#        description: The repository of the website
-#
-#      - name: Code
-#        repo: org/project
-#        icon: "<i class='icon icon-book'></i>"
-#        description: The repository of the project
+    url: https://github.com/goldjg
+  description: Rating websites on dark mode and colour contrast accessibility.
 
 menu:
   main:
-
     - url: /
       name: Home
-      identifier: home
-      pre: "<i class='icon icon-home'></i>"
       weight: 1
-
-    - url: /docs
-      name: Documentation
-      identifier: docs
-      pre: "<i class='icon icon-book'></i>"
+    - url: /docs/overview
+      name: Overview
       weight: 2
+    - url: /docs/the-list
+      name: The List
+      weight: 3

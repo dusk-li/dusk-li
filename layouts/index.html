@@ -1,0 +1,25 @@
+{{ define "main" }}
+<section class="hero" aria-labelledby="hero-heading">
+  <h1 id="hero-heading">dusk<span class="dot" aria-hidden="true">.</span>li</h1>
+  <p class="tagline">Throwing shade at the web</p>
+  <p class="hero-desc">Rating websites on their dark mode and colour contrast accessibility support.</p>
+  <nav class="hero-links" aria-label="Key sections">
+    <a class="btn" href="/docs/overview">What is dusk.li?</a>
+    <a class="btn btn-outline" href="/docs/the-list">Browse the list</a>
+  </nav>
+</section>
+<section class="stats-strip" aria-label="Datastore statistics">
+  {{ $sites := .Site.Data.websites }}
+  {{ $sorted := sort $sites "last_updated" "desc" }}
+  <dl class="stats">
+    <div class="stat">
+      <dt>Sites scanned</dt>
+      <dd>{{ len $sites }}</dd>
+    </div>
+    <div class="stat">
+      <dt>Last updated</dt>
+      <dd>{{ (index $sorted 0).last_updated }}</dd>
+    </div>
+  </dl>
+</section>
+{{ end }}

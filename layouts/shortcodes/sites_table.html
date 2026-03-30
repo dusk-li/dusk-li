@@ -1,22 +1,25 @@
-<table style="width:100%" id="myTable">
+<div class="table-wrapper" role="region" aria-label="Scanned websites" tabindex="0">
+<table id="sites-table">
+  <caption>Websites rated for dark mode and contrast accessibility</caption>
   <thead>
     <tr>
-      <th>URL</th>
-      <th>Dark Mode Support</th>
-      <th>Contrast Accessibility</th>
-      <th>Rating</th>
-      <th>Last Reviewed</th>
+      <th scope="col">URL</th>
+      <th scope="col">Dark Mode</th>
+      <th scope="col">Contrast</th>
+      <th scope="col">Score</th>
+      <th scope="col">Last Reviewed</th>
     </tr>
   </thead>
   <tbody>
 {{ range .Site.Data.websites }}
 <tr>
-  <td><a href="{{ .url }}" target="_blank">{{ .url }}</a></td>
+  <td><a href="{{ .url }}" target="_blank" rel="noopener noreferrer">{{ .url }}<span class="sr-only"> (opens in new tab)</span></a></td>
   <td>{{ .dark_mode }}</td>
-  <td>{{ .contrast_accessibility }}</td>
+  <td><span class="badge badge--{{ .contrast_accessibility | lower }}">{{ .contrast_accessibility }}</span></td>
   <td>{{ .accessibility_rating }}</td>
   <td>{{ .last_updated }}</td>
 </tr>
 {{ end }}
   </tbody>
-</table> 
+</table>
+</div>
