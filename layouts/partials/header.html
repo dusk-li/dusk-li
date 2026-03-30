@@ -1,0 +1,29 @@
+<header class="site-header" role="banner">
+  <div class="header-inner">
+    <a class="site-title" href="{{ "/" | relURL }}" aria-label="{{ .Site.Title }} home">
+      dusk<span class="dot" aria-hidden="true">.</span>li
+    </a>
+    <nav class="site-nav" aria-label="Main navigation">
+      <ul role="list">
+        <li><a href="{{ "/" | relURL }}"{{ if .IsHome }} aria-current="page"{{ end }}>Home</a></li>
+        <li><a href="/docs/overview"{{ if eq .RelPermalink "/docs/overview/" }} aria-current="page"{{ end }}>Overview</a></li>
+        <li><a href="/docs/the-list"{{ if eq .RelPermalink "/docs/the-list/" }} aria-current="page"{{ end }}>The List</a></li>
+      </ul>
+    </nav>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Switch to dark mode" aria-pressed="false">
+      <svg aria-hidden="true" focusable="false" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="5" class="sun-icon"/>
+        <line x1="12" y1="1" x2="12" y2="3" class="sun-icon"/>
+        <line x1="12" y1="21" x2="12" y2="23" class="sun-icon"/>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" class="sun-icon"/>
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" class="sun-icon"/>
+        <line x1="1" y1="12" x2="3" y2="12" class="sun-icon"/>
+        <line x1="21" y1="12" x2="23" y2="12" class="sun-icon"/>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" class="sun-icon"/>
+        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" class="sun-icon"/>
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" class="moon-icon"/>
+      </svg>
+      <span class="theme-label">Dark mode</span>
+    </button>
+  </div>
+</header>
