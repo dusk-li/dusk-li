@@ -13,6 +13,12 @@
  Last updated: &lt;time&gt;2026-03-30&lt;/time&gt;.
 &lt;/p&gt;
 
+&lt;div class="review-request-cta"&gt;
+ &lt;p&gt;Know a site that should be here, or think a listing needs updating?&lt;/p&gt;
+ &lt;a class="btn btn--outline" href="https://github.com/dusk-li/a-scanner-duskli/issues/new?template=review-request.yml" target="_blank" rel="noopener noreferrer"&gt;
+ Request a Review&lt;span class="sr-only"&gt; (opens GitHub, new tab)&lt;/span&gt;
+ &lt;/a&gt;
+&lt;/div&gt;
 &lt;div class="table-controls"&gt;
  &lt;label class="sr-only" for="table-search"&gt;Search all columns&lt;/label&gt;
  &lt;input type="search" id="table-search" class="table-search" placeholder="Search…" aria-label="Search all columns"&gt;
