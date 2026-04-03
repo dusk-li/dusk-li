@@ -3,17 +3,14 @@
 
 {{/* Score 0 */}}
 {{ $score0 := slice }}
-{{ range $sites }}
-  {{ if eq .accessibility_rating "0/3" }}{{ $score0 = $score0 | append . }}{{ end }}
-{{ end }}
-
 {{/* Dark mode none */}}
-{{ $noDark := where $sites "dark_mode" "None" }}
-
+{{ $noDark := slice }}
 {{/* Contrast fail or blocked */}}
 {{ $failContrast := slice }}
 {{ $blockedContrast := slice }}
 {{ range $sites }}
+  {{ if eq .accessibility_rating "0/3" }}{{ $score0 = $score0 | append . }}{{ end }}
+  {{ if eq .dark_mode "None" }}{{ $noDark = $noDark | append . }}{{ end }}
   {{ if eq .contrast_accessibility "FAIL" }}{{ $failContrast = $failContrast | append . }}{{ end }}
   {{ if eq .contrast_accessibility "BLOCKED" }}{{ $blockedContrast = $blockedContrast | append . }}{{ end }}
 {{ end }}
