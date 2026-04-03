@@ -4,17 +4,18 @@
 {{/* Score groups */}}
 {{ $score3 := slice }}
 {{ $score2 := slice }}
+{{/* Dark mode groups */}}
+{{ $autoSites := slice }}
+{{ $manualSites := slice }}
+{{/* Contrast pass */}}
+{{ $passSites := slice }}
 {{ range $sites }}
   {{ if eq .accessibility_rating "3/3" }}{{ $score3 = $score3 | append . }}{{ end }}
   {{ if eq .accessibility_rating "2/3" }}{{ $score2 = $score2 | append . }}{{ end }}
+  {{ if eq .dark_mode "Auto" }}{{ $autoSites = $autoSites | append . }}{{ end }}
+  {{ if eq .dark_mode "Manual" }}{{ $manualSites = $manualSites | append . }}{{ end }}
+  {{ if eq .contrast_accessibility "PASS" }}{{ $passSites = $passSites | append . }}{{ end }}
 {{ end }}
-
-{{/* Dark mode groups */}}
-{{ $autoSites := where $sites "dark_mode" "Auto" }}
-{{ $manualSites := where $sites "dark_mode" "Manual" }}
-
-{{/* Contrast pass */}}
-{{ $passSites := where $sites "contrast_accessibility" "PASS" }}
 
 {{/* Champions: Perfect score (3/3) */}}
 {{ $champions := $score3 }}
