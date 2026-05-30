@@ -1,1 +1,4 @@
-<h3>{{ .Site.Data.websites | len }} sites scanned as of {{ .Site.LastChange | time.Format ":date_long" }} {{ .Site.LastChange | time.Format ":time_long" }}</h3>
+<p class="sites-status">
+  {{ len .Site.Data.websites }} websites in the datastore.
+  Last updated: <time>{{ range first 1 (sort .Site.Data.websites "last_updated" "desc") }}{{ .last_updated }}{{ end }}</time>.
+</p>

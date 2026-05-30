@@ -1,0 +1,10 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+{{ $title := cond .IsHome (printf "%s — %s" .Site.Title .Site.Params.description) (printf "%s — %s" .Title .Site.Title) }}
+<title>{{ $title }}</title>
+<meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+<link rel="stylesheet" href="{{ "css/style.css" | relURL }}">
+<script>
+  (function(){var t=localStorage.getItem('dusk-theme');if(t)document.documentElement.setAttribute('data-theme',t);})();
+</script>
